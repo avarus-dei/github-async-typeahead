@@ -1,5 +1,21 @@
-.container{
-    margin-top: 20px;
-    max-height: calc(100vh - 200px);
-    overflow-y: scroll;
+.container {
+  margin-top: 20px;
+  max-height: calc(100vh - 200px);
+  overflow-y: scroll;
+}
+
+.option {
+  display: flex;
+  max-height: 6rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.user_name {
+  font-size: 2em;
+}
+.user_img {
+  height: 6rem;
+  aspect-ratio: 1/1;
 }

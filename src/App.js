@@ -12,13 +12,17 @@ function App() {
     fetch(`${SEARCH_URI}?q=${query}+in:login&page=1&per_page=50`)
       .then((resp) => resp.json())
       .then(({ items }) => {
-        const options = items.map((i) => ({
-          avatar_url: i.avatar_url,
-          id: i.id,
-          login: i.login,
-          url: i.html_url,
-        }));
-
+        let options;
+        if (items === undefined) {
+          options = [];
+        } else {
+          options = items.map((i) => ({
+            avatar_url: i.avatar_url,
+            id: i.id,
+            login: i.login,
+            url: i.html_url,
+          }));
+        }
         setSearchOptions(options);
       });
   };
