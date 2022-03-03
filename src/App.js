@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState } from "react";
+import "./App.css";
+import SearchBar from "./Components/SearchBar";
+import UserOptions from "./Components/UserOptions";
+
+const SEARCH_URI = "https://api.github.com/search/users";
 
 function App() {
+  const [searchOptions, setSearchOptions] = useState([]);
+
+  const searchInputHandler = (query) => {
+    fetch(`${SEARCH_URI}?q=${query}+in:login&page=1&per_page=50`)
+      .then((resp) => resp.json())
+      .then(({ items }) => {
+        const options = items.map((i) => ({
+          avatar_url: i.avatar_url,
+          id: i.id,
+          login: i.login,
+          url: i.html_url,
+        }));
+
+        setSearchOptions(options);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SearchBar onInput={searchInputHandler} />
+      <UserOptions options={searchOptions} />
+    </>
   );
 }
 
