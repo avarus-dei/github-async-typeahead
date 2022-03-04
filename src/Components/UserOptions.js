@@ -2,10 +2,18 @@ import styles from "./UserOptions.module.css";
 
 export default function UserOptions(props) {
   const options = props.options;
-  
+  let userNameClasses = styles.user_name;
+  let containerClasses = styles.container;
+  if (props.nightMode) {
+    userNameClasses += ` ${styles.inNigthMode}`;
+    containerClasses += ` ${styles.inNigthMode}`;
+  } else {
+    userNameClasses += ` ${styles.inLigthMode}`;
+    containerClasses += ` ${styles.inLigthMode}`;
+  }
 
   return (
-    <div className={styles.container}>
+    <div className={containerClasses}>
       {options.map((option) => (
         <a
           key={option.id}
@@ -14,8 +22,12 @@ export default function UserOptions(props) {
           target="_blank"
           rel="noreferrer"
         >
-          <p className={styles.user_name}>{option.login}</p>
-          <img className={styles.user_img} src={option.avatar_url} alt={`github-user-#${options.indexOf(option)}`} />
+          <p className={userNameClasses}>{option.login}</p>
+          <img
+            className={styles.user_img}
+            src={option.avatar_url}
+            alt={`${option.login}`}
+          />
         </a>
       ))}
     </div>

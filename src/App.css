@@ -6,10 +6,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: darkslategrey;
     height: 100vh;
+    max-width: 100vw;
+
+}
+.body.inNightMode{
+    background-color: #121212;
+}
+.body.inLightMode{
+    background-color: #eeddf1fa;
+}
+.header{
+    font-size: large;
+    margin: 1rem;
+}
+.header.inNightMode{
+    color: white;
 }
 
-.github-img{
-    width: 10%;
-}

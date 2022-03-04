@@ -1,25 +1,50 @@
-
 .container {
-  margin: 20px auto;
-  width: 65vw;
+  margin: 1rem auto 0.5rem;
+  width: min(700px, 80%);
   max-height: calc(100vh - 100px);
   overflow-y: auto;
 }
+.container.inNigthMode {
+  background-color: #1f1b24;
+}
+.container::-webkit-scrollbar {
+  width: 12px;
+}
+.container.inNigthMode::-webkit-scrollbar {
+  background-color: white;
+}
 
+.container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
 .option {
   display: flex;
   height: 5rem;
+  width: 95%;
+  margin: 0.5rem 0.3rem 0.5rem auto;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
   text-decoration: none;
-  color: rgb(94, 28, 28);
 }
 
 .user_name {
   max-width: 60%;
-  font-size: 2em;
+  font-size: 1.5em;
+  word-wrap: break-word;
 }
+.user_name.inNigthMode {
+  color: #bb86fc;
+}
+.user_name.inLigthMode {
+  color: rgb(6, 101, 129);
+}
+
 .user_img {
   height: 100%;
   aspect-ratio: 1/1;

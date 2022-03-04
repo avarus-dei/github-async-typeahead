@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import "./App.css";
 import SearchBar from "./Components/SearchBar";
 import UserOptions from "./Components/UserOptions";
+import Button from "./Components/Button";
 
 const SEARCH_URI = "https://api.github.com/search/users";
 
@@ -33,16 +34,21 @@ export default function App() {
       });
   };
 
-  const swichModes = () => {
-
+  const swichModesHandler = () => {
     setIsInNightMode(!isInNightMode);
-  }
+  };
 
   return (
-    <div className="body">
-      <hi>GitHub async TapeAhead</hi>
-      <a onClick={swichModes}>swich</a>
-      <img className="github-img" src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU" />
+    <div className={`body ${isInNightMode ? "inNightMode" : "inLightMode"}`}>
+      <h1 className={`header ${isInNightMode ? "inNightMode" : "inLightMode"}`}>
+        GitHub Async TapeAhead
+      </h1>
+      <Button
+        swichModes={swichModesHandler}
+        currentMode={
+          isInNightMode ? "Switch to lightMode" : "Switch to nightMode"
+        }
+      />
       <SearchBar onInput={searchInputHandler} nightMode={isInNightMode} />
       <UserOptions options={searchOptions} nightMode={isInNightMode} />
     </div>
