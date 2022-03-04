@@ -5,12 +5,17 @@ import UserOptions from "./Components/UserOptions";
 
 const SEARCH_URI = "https://api.github.com/search/users";
 
-function App() {
+export default function App() {
   const [searchOptions, setSearchOptions] = useState([]);
 
   const searchInputHandler = (query) => {
+    if (query.length === 0) {
+      setSearchOptions([]);
+      return;
+    }
     fetch(`${SEARCH_URI}?q=${query}+in:login&page=1&per_page=50`)
       .then((resp) => resp.json())
+
       .then(({ items }) => {
         let options;
         if (items === undefined) {
@@ -28,11 +33,11 @@ function App() {
   };
 
   return (
-    <>
+    <div className="body">
+      <hi>GitHub async TapeAhead</hi>
+      <img className="github-img" src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU" />
       <SearchBar onInput={searchInputHandler} />
       <UserOptions options={searchOptions} />
-    </>
+    </div>
   );
 }
-
-export default App;

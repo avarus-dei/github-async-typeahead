@@ -1,4 +1,5 @@
 import { React, useState, useRef } from "react";
+import styles from "./SearchBar.module.css";
 
 export default function SearchBar(props) {
   const nameInput = useRef();
@@ -12,7 +13,13 @@ export default function SearchBar(props) {
 
   return (
     <div>
-      <input type="text" onChange={searchHandler} ref={nameInput} />
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Search GitHub Users"
+        onChange={searchHandler}
+        ref={nameInput}
+      />
     </div>
   );
 }

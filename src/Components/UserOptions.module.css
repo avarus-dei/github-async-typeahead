@@ -1,21 +1,26 @@
+
 .container {
-  margin-top: 20px;
-  max-height: calc(100vh - 200px);
-  overflow-y: scroll;
+  margin: 20px auto;
+  width: 65vw;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 
 .option {
   display: flex;
-  max-height: 6rem;
+  height: 5rem;
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
+  text-decoration: none;
+  color: rgb(94, 28, 28);
 }
 
 .user_name {
+  max-width: 60%;
   font-size: 2em;
 }
 .user_img {
-  height: 6rem;
+  height: 100%;
   aspect-ratio: 1/1;
 }
