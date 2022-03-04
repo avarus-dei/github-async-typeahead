@@ -7,6 +7,7 @@ const SEARCH_URI = "https://api.github.com/search/users";
 
 export default function App() {
   const [searchOptions, setSearchOptions] = useState([]);
+  const [isInNightMode, setIsInNightMode] = useState(false);
 
   const searchInputHandler = (query) => {
     if (query.length === 0) {
@@ -32,12 +33,18 @@ export default function App() {
       });
   };
 
+  const swichModes = () => {
+
+    setIsInNightMode(!isInNightMode);
+  }
+
   return (
     <div className="body">
       <hi>GitHub async TapeAhead</hi>
+      <a onClick={swichModes}>swich</a>
       <img className="github-img" src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU" />
-      <SearchBar onInput={searchInputHandler} />
-      <UserOptions options={searchOptions} />
+      <SearchBar onInput={searchInputHandler} nightMode={isInNightMode} />
+      <UserOptions options={searchOptions} nightMode={isInNightMode} />
     </div>
   );
 }
