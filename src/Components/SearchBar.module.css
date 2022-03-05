@@ -7,20 +7,20 @@
     border-radius: 5px;
     
 }
-.input.onLigthMode{
+.input.inLigthMode{
     background-color: rgb(251, 228, 255);
 }
-.input.onLigthMode:focus{
+.input.inLigthMode:focus{
     background-color: rgb(238, 220, 241);
 }
 
-.input.onNigthMode{
+.input.inNigthMode{
     border: 2px solid white;
     background-color: rgb(12, 1, 29);
     color: white;
 
 }
-.input.onNigthMode:focus{
+.input.inNigthMode:focus{
     background-color: rgb(13, 1, 15);
     color: white;
     border: 2px solid white;

@@ -6,9 +6,9 @@ export default function SearchBar(props) {
 
   let inputClasses = styles.input;
   if(props.nightMode){
-    inputClasses += ` ${styles.onNigthMode}`
+    inputClasses += ` ${styles.inNigthMode}`
   }else{
-    inputClasses += ` ${styles.onLigthMode}`
+    inputClasses += ` ${styles.inLigthMode}`
   }
 
   const searchHandler = (event) => {

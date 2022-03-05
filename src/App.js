@@ -8,6 +8,7 @@ const SEARCH_URI = "https://api.github.com/search/users";
 
 export default function App() {
   const [searchOptions, setSearchOptions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [isInNightMode, setIsInNightMode] = useState(false);
 
   const searchInputHandler = (query) => {
@@ -15,9 +16,9 @@ export default function App() {
       setSearchOptions([]);
       return;
     }
+    setIsLoading(true);
     fetch(`${SEARCH_URI}?q=${query}+in:login&page=1&per_page=50`)
       .then((resp) => resp.json())
-
       .then(({ items }) => {
         let options;
         if (items === undefined) {
@@ -30,6 +31,7 @@ export default function App() {
             url: i.html_url,
           }));
         }
+        setIsLoading(false);
         setSearchOptions(options);
       });
   };
@@ -45,12 +47,17 @@ export default function App() {
       </h1>
       <Button
         swichModes={swichModesHandler}
+        nightMode={isInNightMode}
         currentMode={
           isInNightMode ? "Switch to lightMode" : "Switch to nightMode"
         }
       />
       <SearchBar onInput={searchInputHandler} nightMode={isInNightMode} />
-      <UserOptions options={searchOptions} nightMode={isInNightMode} />
+      {isLoading ? (
+        <p>loading . . .</p>
+      ) : (
+        <UserOptions options={searchOptions} nightMode={isInNightMode} />
+      )}
     </div>
   );
 }
