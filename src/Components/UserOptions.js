@@ -22,7 +22,7 @@ export default function UserOptions(props) {
           target="_blank"
           rel="noreferrer"
         >
-          <p className={userNameClasses}>{option.login}</p>
+          <span className={userNameClasses}>{option.login}</span>
           <img
             className={styles.user_img}
             src={option.avatar_url}

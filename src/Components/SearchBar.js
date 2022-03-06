@@ -13,7 +13,7 @@ export default function SearchBar(props) {
 
   const searchHandler = (event) => {
     event.preventDefault();
-    const enteredName = nameInput.current.value.toLowerCase();
+    const enteredName = nameInput.current.value.trim().toLowerCase();
     props.onInput(enteredName);
   };
 
