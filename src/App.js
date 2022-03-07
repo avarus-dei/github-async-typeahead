@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import "./App.css";
 import SearchBar from "./Components/SearchBar";
 import UserOptions from "./Components/UserOptions";
@@ -13,11 +13,15 @@ export default function App() {
   const [isInNightMode, setIsInNightMode] = useState(false);
   const [query, setQuery] = useState("");
 
-  const searchInputHandler = (value) => {
+  const changeInputHandler = (value) => {
     setQuery(value);
   };
 
   const searchHandler = () => {
+    if (!query) {
+      setSearchOptions([]);
+      return;
+    }
     setIsLoading(true);
     const URL = encodeURI(
       `${SEARCH_URI}?q=${query}+in:login&page=1&per_page=50`
@@ -56,9 +60,11 @@ export default function App() {
           isInNightMode ? "Switch to lightMode" : "Switch to nightMode"
         }
       />
-      <SearchBar onInput={searchInputHandler} nightMode={isInNightMode} />
+      <SearchBar onInput={changeInputHandler} nightMode={isInNightMode} />
       {isLoading ? (
-        <p>loading . . .</p>
+        <p style={isInNightMode ? { color: "white" } : { color: "black" }}>
+          loading . . .
+        </p>
       ) : (
         <UserOptions options={searchOptions} nightMode={isInNightMode} />
       )}

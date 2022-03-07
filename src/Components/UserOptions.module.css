@@ -56,3 +56,9 @@
   height: 100%;
   aspect-ratio: 1/1;
 }
+
+@media (max-width: 400px){
+  .option{
+    height: 4rem;
+  }
+}
