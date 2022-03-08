@@ -8,5 +8,5 @@ export default function Button(props) {
     buttonClasses += ` ${styles.inLigthMode}`
   }
   
-  return <button className={buttonClasses} onClick={props.swichModes}>{props.currentMode}</button>;
+  return <button className={buttonClasses} onClick={props.swichModes}></button>;
 }

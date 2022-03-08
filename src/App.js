@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import "./App.css";
 import SearchBar from "./Components/SearchBar";
 import UserOptions from "./Components/UserOptions";
@@ -56,9 +56,6 @@ export default function App() {
       <Button
         swichModes={swichModesHandler}
         nightMode={isInNightMode}
-        currentMode={
-          isInNightMode ? "Switch to lightMode" : "Switch to nightMode"
-        }
       />
       <SearchBar onInput={changeInputHandler} nightMode={isInNightMode} />
       {isLoading ? (

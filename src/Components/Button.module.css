@@ -1,13 +1,36 @@
-.button{
-    padding: .5rem;
-    border-radius: 1000px;
-    font-weight: bold;
+.button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 2rem;
+  height: 1rem;
+  border-radius: 1000px;
+  display: block;
+  transition: 200ms;
+  position: absolute;
+  top: 1rem;
+  right: 0.5rem;
 }
-.button.inNigthMode{
-    background-color: #eeddf1fa;
-    color: #1f1b24;
+.button::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background-color: rgb(255, 180, 180);
+
+  border-radius: 1000px;
+  transition: 500ms;
 }
-.button.inLigthMode{
-    background-color: #1f1b24;
-    color: #eeddf1fa;
+.button.inNigthMode {
+  background-color: #eeddf1fa;
+  color: #1f1b24;
+}
+.button.inNigthMode::before {
+  background-color: rgb(141, 41, 41);
+  transform: translateX(1rem);
+}
+
+.button.inLigthMode {
+  background-color: #1f1b24;
+  color: #eeddf1fa;
 }

@@ -1,8 +1,8 @@
 .container {
-  margin: 1rem auto 0.5rem;
-  width: min(700px, 80%);
-  max-height: calc(100vh - 100px);
+  margin: 0.5rem auto 0.5rem;
+  width: min(700px, 70%);
   overflow-y: auto;
+  border-radius: 5px;
 }
 .container.inNigthMode {
   background-color: #1f1b24;
@@ -21,7 +21,7 @@
 }
 
 .container.inNigthMode::-webkit-scrollbar-track {
-  background-color: #646464;
+  background-color: #1f1b24;
 }
 
 .container.inNigthMode::-webkit-scrollbar-thumb {
@@ -57,8 +57,14 @@
   aspect-ratio: 1/1;
 }
 
-@media (max-width: 400px){
-  .option{
+@media (max-width: 426px) {
+  .container {
+    margin: 0rem auto 0.5rem;
+  }
+  .option {
     height: 4rem;
+  }
+  .user_name {
+    font-size: 1.2em;
   }
 }
