@@ -3,9 +3,13 @@
   width: min(400px, 75%);
   overflow-y: auto;
   border-radius: 5px;
+  animation: unfold 500ms forwards ease-in-out;
 }
 .container.inNigthMode {
   background-color: #1f1b24;
+}
+.container.folded{
+  animation: fold 500ms forwards ease-in-out;
 }
 .container::-webkit-scrollbar {
   width: 8px;
@@ -55,6 +59,26 @@
 .user_img {
   height: 100%;
   aspect-ratio: 1/1;
+}
+
+@keyframes fold{
+  0%{
+    height: 100%;
+  }
+  100%{
+    height: 0%;
+    box-shadow: none;
+  }
+}
+
+@keyframes unfold{
+  0%{
+    height: 0%;
+    box-shadow: none;
+  }
+  100%{
+    height: 100%;
+  }
 }
 
 @media (max-width: 426px) {

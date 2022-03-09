@@ -11,6 +11,7 @@ export default function App() {
   const [searchOptions, setSearchOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isInNightMode, setIsInNightMode] = useState(false);
+  const [clickedOutside, setclickedOutside] = useState(false);
   const [query, setQuery] = useState("");
 
   const changeInputHandler = (value) => {
@@ -39,6 +40,8 @@ export default function App() {
 
         setIsLoading(false);
         setSearchOptions(options);
+        setclickedOutside(false)
+
       });
   };
 
@@ -50,7 +53,8 @@ export default function App() {
 
   const clickOutsideHandler = (event) => {
     if (event.target.className.includes("body")) {
-      setSearchOptions([]);
+      setclickedOutside(true);
+
     }
   };
 
@@ -69,7 +73,11 @@ export default function App() {
           loading . . .
         </p>
       ) : (
-        <UserOptions options={searchOptions} nightMode={isInNightMode} />
+        <UserOptions
+          options={searchOptions}
+          isClickedOutside={clickedOutside}
+          nightMode={isInNightMode}
+        />
       )}
     </div>
   );
