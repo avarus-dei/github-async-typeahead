@@ -2,7 +2,7 @@ import styles from "./UserOptions.module.css";
 
 export default function UserOptions(props) {
   const options = props.options;
-  console.log(options.length);
+
   let userNameClasses = styles.user_name;
   let containerClasses = styles.container;
   if (props.nightMode) {
@@ -16,7 +16,7 @@ export default function UserOptions(props) {
   return (
     <ul
       style={
-        options.length > 0 ? { "box-shadow": "#646464 1px 3px 5px 3px" } : {}
+        options.length > 0 ? { boxShadow: "#646464 1px 3px 5px 3px" } : {}
       }
       className={containerClasses}
     >

@@ -1,6 +1,6 @@
 .container {
-  margin: 0.5rem auto 0.5rem;
-  width: min(700px, 70%);
+  margin: 0rem auto 0.5rem;
+  width: min(400px, 75%);
   overflow-y: auto;
   border-radius: 5px;
 }
@@ -58,9 +58,6 @@
 }
 
 @media (max-width: 426px) {
-  .container {
-    margin: 0rem auto 0.5rem;
-  }
   .option {
     height: 4rem;
   }

@@ -48,15 +48,21 @@ export default function App() {
     setIsInNightMode(!isInNightMode);
   };
 
+  const clickOutsideHandler = (event) => {
+    if (event.target.className.includes("body")) {
+      setSearchOptions([]);
+    }
+  };
+
   return (
-    <div className={`body ${isInNightMode ? "inNightMode" : "inLightMode"}`}>
+    <div
+      className={`body ${isInNightMode ? "inNightMode" : "inLightMode"}`}
+      onClick={clickOutsideHandler}
+    >
       <h1 className={`header ${isInNightMode ? "inNightMode" : "inLightMode"}`}>
         GitHub Async TapeAhead
       </h1>
-      <Button
-        swichModes={swichModesHandler}
-        nightMode={isInNightMode}
-      />
+      <Button swichModes={swichModesHandler} nightMode={isInNightMode} />
       <SearchBar onInput={changeInputHandler} nightMode={isInNightMode} />
       {isLoading ? (
         <p style={isInNightMode ? { color: "white" } : { color: "black" }}>

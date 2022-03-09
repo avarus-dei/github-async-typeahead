@@ -5,10 +5,10 @@ export default function SearchBar(props) {
   const nameInput = useRef();
 
   let inputClasses = styles.input;
-  if(props.nightMode){
-    inputClasses += ` ${styles.inNigthMode}`
-  }else{
-    inputClasses += ` ${styles.inLigthMode}`
+  if (props.nightMode) {
+    inputClasses += ` ${styles.inNigthMode}`;
+  } else {
+    inputClasses += ` ${styles.inLigthMode}`;
   }
 
   const searchHandler = (event) => {
