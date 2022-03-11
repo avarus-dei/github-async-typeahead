@@ -20,8 +20,9 @@ export default function SearchBar(props) {
   return (
     <input
       className={inputClasses}
-      type="text"
+      type="search"
       placeholder="Search GitHub Users"
+      aria-label="Search"
       onChange={searchHandler}
       ref={nameInput}
     />

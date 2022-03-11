@@ -1,27 +1,24 @@
-.input{
-    display: block;
-    width: min(400px, 75%);
-    padding: .5rem 0;
-    margin: 1rem auto 0;
-    border-radius: 5px;
-    
+.input {
+  display: block;
+  width: min(400px, 75%);
+  padding: 0.5rem 0;
+  margin: 1rem auto 0;
+  border-radius: 5px;
 }
-.input.inLigthMode{
-    background-color: rgb(251, 228, 255);
+.input.inLigthMode {
+  background-color: rgb(251, 228, 255);
 }
-.input.inLigthMode:focus{
-    background-color: rgb(238, 220, 241);
+.input.inLigthMode:focus {
+  background-color: rgb(238, 220, 241);
 }
 
-.input.inNigthMode{
-    border: 2px solid white;
-    background-color: rgb(12, 1, 29);
-    color: white;
-
+.input.inNigthMode {
+  border: 2px solid white;
+  background-color: rgb(12, 1, 29);
+  color: white;
 }
-.input.inNigthMode:focus{
-    background-color: rgb(13, 1, 15);
-    color: white;
-    border: 2px solid white;
-
+.input.inNigthMode:focus {
+  background-color: rgb(13, 1, 15);
+  color: white;
+  border: 2px solid white;
 }

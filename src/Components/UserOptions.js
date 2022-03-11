@@ -17,7 +17,7 @@ export default function UserOptions(props) {
   }
   return (
     <ul
-      style={options.length > 0 ? { boxShadow: "#646464 1px 3px 5px 3px" } : {}}
+      style={options.length > 0 ? { boxShadow: "#646464 1px 3px 5px 3px"} : {}}
       className={containerClasses}
     >
       {options.map((option) => (

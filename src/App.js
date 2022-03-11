@@ -16,6 +16,7 @@ export default function App() {
 
   const changeInputHandler = (value) => {
     setQuery(value);
+    setclickedOutside(true);
   };
 
   const searchHandler = () => {
@@ -40,8 +41,7 @@ export default function App() {
 
         setIsLoading(false);
         setSearchOptions(options);
-        setclickedOutside(false)
-
+        setclickedOutside(false);
       });
   };
 
@@ -54,7 +54,6 @@ export default function App() {
   const clickOutsideHandler = (event) => {
     if (event.target.className.includes("body")) {
       setclickedOutside(true);
-
     }
   };
 
