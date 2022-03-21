@@ -1,6 +1,6 @@
 .container {
   margin: 0rem auto 0.5rem;
-  width: min(400px, 75%);
+  width: min(500px, 75%);
   overflow-y: auto;
   border-radius: 5px;
   animation: unfold 500ms forwards ease-in-out;

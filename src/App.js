@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import SearchBar from "./Components/SearchBar";
 import UserOptions from "./Components/UserOptions";
 import Button from "./Components/Button";
@@ -47,26 +47,37 @@ export default function App() {
 
   useDebounce(query, 500, searchHandler);
 
-  const swichModesHandler = () => {
+  const swichModesHandler = (event) => {
+    event.preventDefault();
     setIsInNightMode(!isInNightMode);
   };
 
   const clickOutsideHandler = (event) => {
-    if (event.target.className.includes("body")) {
+    if (event.target.className.includes(`${styles.body}`)) {
       setclickedOutside(true);
     }
   };
 
   return (
     <div
-      className={`body ${isInNightMode ? "inNightMode" : "inLightMode"}`}
+      className={`${styles.body} ${
+        isInNightMode ? styles.inNightMode : styles.inLightMode
+      }`}
       onClick={clickOutsideHandler}
     >
-      <h1 className={`header ${isInNightMode ? "inNightMode" : "inLightMode"}`}>
+      <h1
+        className={`${styles.header} ${
+          isInNightMode ? styles.inNightMode : styles.inLightMode
+        }`}
+      >
         GitHub Async TapeAhead
       </h1>
       <Button swichModes={swichModesHandler} nightMode={isInNightMode} />
-      <SearchBar onInput={changeInputHandler} nightMode={isInNightMode} />
+      <SearchBar
+        onInput={changeInputHandler}
+        nightMode={isInNightMode}
+        isClickedOutside={clickedOutside}
+      />
       {isLoading ? (
         <p style={isInNightMode ? { color: "white" } : { color: "black" }}>
           loading . . .

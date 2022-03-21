@@ -1,7 +1,8 @@
 .input {
   display: block;
-  width: min(400px, 75%);
-  padding: 0.5rem 0;
+  box-sizing: border-box;
+  width: min(500px, 75%);
+  padding: 0.5rem 0.2rem;
   margin: 1rem auto 0;
   border-radius: 5px;
 }
